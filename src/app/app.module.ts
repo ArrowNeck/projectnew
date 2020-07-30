@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule} from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +18,12 @@ import { EditDepComponent } from './department/edit-dep/edit-dep.component';
 import { AddDepComponent } from './department/add-dep/add-dep.component';
 import {EmployeeService} from 'src/app/services/employee.service';
 import {DepartmentService} from 'src/app/services/department.service';
-import {MatTableModule, MatButtonModule} from '@angular/material';
+import {MatTableModule, MatButtonModule, MatSnackBarModule} from '@angular/material';
+import {MatSortModule} from '@angular/material'; 
+import {MatDialogModule} from '@angular/material'; 
+import {FormsModule} from '@angular/forms';
+import { Observable } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +45,15 @@ import {MatTableModule, MatButtonModule} from '@angular/material';
     MatInputModule,
     MatTableModule, 
     MatButtonModule,
+    HttpClientModule,
+    MatSortModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule,
+    
   ],
   providers: [DepartmentService, EmployeeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AddDepComponent]
 })
 export class AppModule { }
