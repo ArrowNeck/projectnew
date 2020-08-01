@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component, OnInit } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +26,6 @@ import {MatDialogModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { Observable } from 'rxjs';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { Observable } from 'rxjs';
     DepartmentComponent,
     ShowDepComponent,
     EditDepComponent,
-    AddDepComponent
+    AddDepComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,10 +52,12 @@ import { Observable } from 'rxjs';
     MatDialogModule,
     FormsModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     
   ],
-  providers: [DepartmentService, EmployeeService],
+  providers: [DepartmentService, EmployeeService,],
   bootstrap: [AppComponent],
-  entryComponents:[AddDepComponent]
+  entryComponents:[AddDepComponent, EditDepComponent, AddEmpComponent, EditEmpComponent]
 })
 export class AppModule { }

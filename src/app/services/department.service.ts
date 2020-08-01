@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Department} from 'src/app/models/department-model';
 import {Observable} from 'rxjs';
 import {Subject} from 'rxjs';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,6 @@ export class DepartmentService {
 
   addDepartment(dep:Department){
     return this.http.post(this.APIUrl + '/department/postData.php', dep);
-  
   }
 
   private _listners = new Subject<any>();
@@ -30,6 +30,15 @@ export class DepartmentService {
     }
     filter(filterBy: string){
       this._listners.next(filterBy);
+    }
+  
+    deleteDepartment(dep:Department){
+      console.log("dep id",dep);
+      return this.http.post(this.APIUrl+ '/department/deleteData.php', dep);
+    }
+
+    updateDepartment(dep:Department){
+      return this.http.post(this.APIUrl + '/department/editData.php', dep);
     }
   
 }
