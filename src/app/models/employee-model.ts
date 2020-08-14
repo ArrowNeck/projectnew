@@ -1,7 +1,7 @@
 export class Employee{
-    EmployeeID: number;
-    EmployeeName: string;
-    Department: string;
-    MailID: string;
-    DOJ: Date;
+    emp_id: number;
+    emp_name: string;
+    department: string;
+    mail_id: string;
+    doj: Date;
 }

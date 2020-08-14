@@ -24,7 +24,7 @@ export class AddEmpComponent implements OnInit {
   dropdownRefresh(){
     this.service.getDepDropdowbValues().subscribe(data=>{
       data.forEach(element => {
-        this.listItems.push(element["DepartmentName"]);
+        this.listItems.push(element["dep_name"]);
       });
     });
   }
@@ -34,11 +34,11 @@ export class AddEmpComponent implements OnInit {
     form.resetForm();
 
     this.service.formData = {
-      EmployeeID: 0,
-      EmployeeName: '',
-      Department: '',
-      MailID: '',
-      DOJ: null,
+      emp_id: 0,
+      emp_name: '',
+      department: '',
+      mail_id: '',
+      doj: null,
     }
   }
 
@@ -50,7 +50,7 @@ export class AddEmpComponent implements OnInit {
   onSubmit(form:NgForm){
     this.service.addEmployee(form.value).subscribe(res =>{
       this.resetForm(form);
-      this.snackBar.open(res.toString(), '', { 
+      this.snackBar.open(res['status'], '', { 
         duration: 3000,
         verticalPosition:'top' });
     });

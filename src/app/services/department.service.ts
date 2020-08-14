@@ -14,14 +14,14 @@ export class DepartmentService {
 
   formData: Department;
 
-  readonly APIUrl = "http://localhost:80/api";
+  readonly APIUrl = "http://localhost:8080";
 
   getDepList(): Observable<Department[]>{
-    return this.http.get<Department[]>(this.APIUrl + '/department/getData.php');
+    return this.http.get<Department[]>(this.APIUrl + '/department');
   }
 
   addDepartment(dep:Department){
-    return this.http.post(this.APIUrl + '/department/postData.php', dep);
+    return this.http.post(this.APIUrl + '/department/', dep);
   }
 
   private _listners = new Subject<any>();
@@ -32,13 +32,12 @@ export class DepartmentService {
       this._listners.next(filterBy);
     }
   
-    deleteDepartment(dep:Department){
-      console.log("dep id",dep);
-      return this.http.post(this.APIUrl+ '/department/deleteData.php', dep);
+    deleteDepartment(id: number){
+      return this.http.delete(this.APIUrl + '/department/' +id);
     }
 
     updateDepartment(dep:Department){
-      return this.http.post(this.APIUrl + '/department/editData.php', dep);
+      return this.http.put(this.APIUrl + '/department', dep);
     }
   
 }

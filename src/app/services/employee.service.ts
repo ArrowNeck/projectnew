@@ -15,14 +15,14 @@ export class EmployeeService {
 
   formData: Employee;
 
-  readonly APIUrl = "http://localhost:80/api";
+  readonly APIUrl = "http://localhost:8080";
 
   getEmpList(): Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.APIUrl + '/employee/getData.php');
+    return this.http.get<Employee[]>(this.APIUrl + '/employee');
   }
 
   addEmployee(emp:Employee){
-    return this.http.post(this.APIUrl + '/employee/postData.php', emp);
+    return this.http.post(this.APIUrl + '/employee/', emp);
   }
 
   private _listners = new Subject<any>();
@@ -33,17 +33,16 @@ export class EmployeeService {
       this._listners.next(filterBy);
     }
   
-    deleteEmployee(emp:Employee){
-      console.log("dep id",emp);
-      return this.http.post(this.APIUrl+ '/employee/deleteData.php', emp);
+    deleteEmployee(id:number){
+      return this.http.delete(this.APIUrl+ '/employee/'+id);
     }
 
     updateEmployee(emp:Employee){
-      return this.http.post(this.APIUrl + '/employee/editData.php', emp);
+      return this.http.put(this.APIUrl + '/employee', emp);
     }
 
     getDepDropdowbValues():Observable<any>{
-      return this.http.get<Department[]>(this.APIUrl+'/department/getData.php');
+      return this.http.get<Department[]>(this.APIUrl+'/department');
     }
   
 }

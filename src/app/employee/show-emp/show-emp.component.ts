@@ -16,13 +16,13 @@ export class ShowEmpComponent implements OnInit {
 
   constructor(private service: EmployeeService, private dialog: MatDialog,private snackBar:MatSnackBar) { 
     this.service.listen().subscribe((m:any)=>{
-      console.log(m);
       this.refreshEmpList();
     });
   }
 
   ListData : MatTableDataSource<any>;
   displayedColumns : string[] = ['Options', 'EmployeeID', 'EmployeeName', 'Department', 'MailID', 'DOJ'];
+  // displayedColumns : string[] = ['Options', 'emp_id', 'emp_name', 'department', 'mail_id', 'doj'];
 
   @ViewChild(MatSort, null) sort: MatSort;
 
@@ -50,11 +50,11 @@ export class ShowEmpComponent implements OnInit {
     this.dialog.open(AddEmpComponent, dialogConfig);
   }
 
-  onDelete(emp: Employee){
+  onDelete(id:number){
     if(confirm('Are you sure to delete ?')){
-      this.service.deleteEmployee(emp).subscribe(res=>{
+      this.service.deleteEmployee(id).subscribe(res=>{
         this.refreshEmpList();
-        this.snackBar.open(res.toString(), '', { 
+        this.snackBar.open(res['status'], '', { 
           duration: 3000,
           verticalPosition:'top' });
       });

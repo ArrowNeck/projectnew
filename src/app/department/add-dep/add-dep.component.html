@@ -15,13 +15,13 @@
             </div>
             <input required minlength="2" type="text"
             class="form-control"
-            name="DepartmentName"
-            #DepartmentName="ngModel"
-            [(ngModel)]="service.formData.DepartmentName">
+            name="dep_name"
+            #dep_name="ngModel"
+            [(ngModel)]="service.formData.dep_name">
         </div>
 
         <div class="text-left text-danger"
-            *ngIf="DepartmentName.invalid && DepartmentName.touched">
+            *ngIf="dep_name.invalid && dep_name.touched">
             Please enter Department name.
         </div>
 

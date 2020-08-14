@@ -22,8 +22,8 @@ export class AddDepComponent implements OnInit {
     form.resetForm();
 
     this.service.formData = {
-      DepartmentID: 0,
-      DepartmentName: ''
+      dep_id: 0,
+      dep_name: ''
     }
   }
 
@@ -33,9 +33,10 @@ export class AddDepComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
+    resp:String;
     this.service.addDepartment(form.value).subscribe(res =>{
       this.resetForm(form);
-      this.snackBar.open(res.toString(), '', { 
+      this.snackBar.open(res['status'], '', { 
         duration: 3000,
         verticalPosition:'top' });
     });

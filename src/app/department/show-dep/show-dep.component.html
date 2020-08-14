@@ -16,20 +16,20 @@
                     <mat-icon>launch</mat-icon>
                 </button>
                 <!-- <button mat-icon-button color="warn" (click)="onDelete(row.DepartmentID)"> -->
-                    <button mat-icon-button color="warn" (click)="onDelete(row)">
+                    <button mat-icon-button color="warn" (click)="onDelete(row.dep_id)">
                     <mat-icon>delete_outline</mat-icon>
                 </button>
             </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="DepartmentID">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>DepartmentID</mat-header-cell>
-              <mat-header-cell *matCellDef="let element">{{element.DepartmentID}}</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Department ID</mat-header-cell>
+              <mat-header-cell *matCellDef="let element">{{element.dep_id}}</mat-header-cell>
           </ng-container>
 
           <ng-container matColumnDef="DepartmentName">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>DepartmentName</mat-header-cell>
-            <mat-header-cell *matCellDef="let element">{{element.DepartmentName}}</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Department Name</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.dep_name}}</mat-header-cell>
         </ng-container>
 
         </mat-table>

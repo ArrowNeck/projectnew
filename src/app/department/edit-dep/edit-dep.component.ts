@@ -23,7 +23,7 @@ export class EditDepComponent implements OnInit {
 
   onSubmit(form:NgForm){
     this.service.updateDepartment(form.value).subscribe(res =>{
-      this.snackBar.open(res.toString(), '', { 
+      this.snackBar.open(res['status'], '', { 
         duration: 3000,
         verticalPosition:'top' });
     });

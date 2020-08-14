@@ -15,9 +15,9 @@
             </div>
             <input readonly="readonly" type="text"
             class="form-control"
-            name="DepartmentID"
-            #DepartmentID="ngModel"
-            [(ngModel)]="service.formData.DepartmentID">
+            name="dep_id"
+            #dep_id="ngModel"
+            [(ngModel)]="service.formData.dep_id">
         </div>
 
         <div class="m-3 input-group">
@@ -26,19 +26,19 @@
             </div>
             <input required minlength="2" type="text"
             class="form-control"
-            name="DepartmentName"
-            #DepartmentName="ngModel"
-            [(ngModel)]="service.formData.DepartmentName">
+            name="dep_name"
+            #dep_name="ngModel"
+            [(ngModel)]="service.formData.dep_name">
         </div>
 
         <div class="text-left text-danger"
-            *ngIf="DepartmentName.invalid && DepartmentName.touched">
+            *ngIf="dep_name.invalid && dep_name.touched">
             Please enter Department name.
         </div>
 
         <button class="m-3" mat-raised-button
         color="primary" type="submit"
-        [disabled]="form.invalid">Edit Department</button>
+        [disabled]="form.invalid">Update Department</button>
 
     </form>
 </div>

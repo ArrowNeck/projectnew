@@ -49,12 +49,12 @@ export class ShowDepComponent implements OnInit {
     this.dialog.open(EditDepComponent, dialogConfig);
   }
 
-  onDelete(dep: Department){
+  onDelete(id:number){
     if(confirm('Are you sure to delete ?')){
-      this.service.deleteDepartment(dep).subscribe(res=>{
+      this.service.deleteDepartment(id).subscribe(res=>{
         this.refreshDepList();
-        this.snackBar.open(res.toString(), '', { 
-          duration: 3000,
+        this.snackBar.open(res['status'], '', { 
+          duration: 2000,
           verticalPosition:'top' });
       });
     }

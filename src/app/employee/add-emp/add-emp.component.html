@@ -15,9 +15,9 @@
             </div>
             <input required minlength="2" type="text"
             class="form-control"
-            name="EmployeeName"
-            #EmployeeName="ngModel"
-            [(ngModel)]="service.formData.EmployeeName">
+            name="emp_name"
+            #emp_name="ngModel"
+            [(ngModel)]="service.formData.emp_name">
         </div>
 
         <div class="m-3 input-group">
@@ -26,9 +26,9 @@
             </div>
             <select required type="text"
             class="form-control"
-            name="Department"
-            #Department="ngModel"
-            [(ngModel)]="service.formData.Department">
+            name="department"
+            #department="ngModel"
+            [(ngModel)]="service.formData.department">
 
             <option *ngFor="let dl of listItems" [value]="dl">
                 {{dl}}
@@ -42,9 +42,9 @@
             </div>
             <input required minlength="2" type="text"
             class="form-control"
-            name="MailID"
-            #MailID="ngModel"
-            [(ngModel)]="service.formData.MailID">
+            name="mail_id"
+            #mail_id="ngModel"
+            [(ngModel)]="service.formData.mail_id">
         </div>
 
         <div class="m-3 input-group">
@@ -53,16 +53,16 @@
             </div>
             <input required [matDatepicker]="basicDatepicker" type="text"
             class="form-control"
-            name="DOJ"
-            #DOJ="ngModel"
-            [(ngModel)]="service.formData.DOJ">
+            name="doj"
+            #doj="ngModel"
+            [(ngModel)]="service.formData.doj">
             <mat-datepicker-toggle matSuffix [for]="basicDatepicker">
             </mat-datepicker-toggle>
             <mat-datepicker #basicDatepicker></mat-datepicker>
         </div>
 
         <div class="text-left text-danger"
-            *ngIf="EmployeeName.invalid && EmployeeName.touched">
+            *ngIf="emp_name.invalid && emp_name.touched">
             Please enter Employee name.
         </div>
 

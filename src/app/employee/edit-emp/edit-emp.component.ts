@@ -24,7 +24,7 @@ export class EditEmpComponent implements OnInit {
   dropdownRefresh(){
     this.service.getDepDropdowbValues().subscribe(data=>{
       data.forEach(element => {
-        this.listItems.push(element["DepartmentName"]);
+        this.listItems.push(element["dep_name"]);
       });
     });
   }
@@ -36,7 +36,7 @@ export class EditEmpComponent implements OnInit {
 
   onSubmit(form:NgForm){
     this.service.updateEmployee(form.value).subscribe(res =>{
-      this.snackBar.open(res.toString(), '', { 
+      this.snackBar.open(res['status'], '', { 
         duration: 3000,
         verticalPosition:'top' });
     });

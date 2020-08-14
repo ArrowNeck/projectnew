@@ -16,7 +16,7 @@
                     <mat-icon>launch</mat-icon>
                 </button>
                 <!-- <button mat-icon-button color="warn" (click)="onDelete(row.DepartmentID)"> -->
-                    <button mat-icon-button color="warn" (click)="onDelete(row)">
+                    <button mat-icon-button color="warn" (click)="onDelete(row.emp_id)">
                     <mat-icon>delete_outline</mat-icon>
                 </button>
             </mat-cell>
@@ -24,27 +24,27 @@
 
           <ng-container matColumnDef="EmployeeID">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</mat-header-cell>
-              <mat-header-cell *matCellDef="let element">{{element.EmployeeID}}</mat-header-cell>
+              <mat-header-cell *matCellDef="let element">{{element.emp_id}}</mat-header-cell>
           </ng-container>
 
           <ng-container matColumnDef="EmployeeName">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</mat-header-cell>
-            <mat-header-cell *matCellDef="let element">{{element.EmployeeName}}</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.emp_name}}</mat-header-cell>
           </ng-container>
 
           <ng-container matColumnDef="Department">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
-            <mat-header-cell *matCellDef="let element">{{element.Department}}</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.department}}</mat-header-cell>
           </ng-container>
 
           <ng-container matColumnDef="MailID">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Mail ID</mat-header-cell>
-            <mat-header-cell *matCellDef="let element">{{element.MailID}}</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.mail_id}}</mat-header-cell>
           </ng-container>
 
           <ng-container matColumnDef="DOJ">
             <mat-header-cell *matHeaderCellDef mat-sort-header>DOJ</mat-header-cell>
-            <mat-header-cell *matCellDef="let element">{{element.DOJ}}</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.doj}}</mat-header-cell>
           </ng-container>
 
         </mat-table>
